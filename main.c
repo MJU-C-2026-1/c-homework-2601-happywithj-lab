@@ -48,7 +48,7 @@ int main()
     avg_diff = current_avg - last_avg;
 
     printf("\n");
-    printf("========== 타자 성적 결과 ==========\n");
+    printf("=========== 타자 성적 결과 ===========\n");
     printf("타자 이니셜\t: %c\n", initial);
     printf("경기 수\t\t: %d\n", game);
     printf("타수\t\t: %d\n", at_bat);
@@ -58,8 +58,8 @@ int main()
     printf("현재 타율\t: %.3f\n", current_avg);
     printf("타율 차이\t: %.3f\n", avg_diff);
     
-    printf("\n========== 타자 등급 판정 ==========\n");
-
+    printf("\n=========== 타자 등급 판정 ===========\n");
+              
     if (current_avg >= 0.330)
     {            
         printf("타자 등급\t: S급 타자\n");
@@ -82,7 +82,7 @@ int main()
     }
 
     printf("\n========== 강타자 여부 판정 ==========\n");
-    
+              
     if (current_avg >= 0.300)
     {
         if (home_run >= 30)
@@ -108,7 +108,7 @@ int main()
         printf("강타자 여부\t: 일반 타자입니다.\n"); 
     }
 
-    printf("===================================\n");                  
-    
+    printf("=====================================\n");                  
+            
     return 0; 
 }
