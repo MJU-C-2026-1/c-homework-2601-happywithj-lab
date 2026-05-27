@@ -173,6 +173,78 @@ void calculate_stats()
     }
 }
 
+/* ===== 타자 성적 출력 함수 ===== */
+void print_player_info()
+{
+    if (is_input == 0)
+    {
+        printf("\n먼저 타자 정보를 입력하세요.\n");
+    }
+
+    else if (is_calculated == 0)
+    {
+        printf("\n먼저 현재 타율을 계산하세요.\n");
+    }
+
+    else
+    {
+        printf("\n========== 타자 성적 결과 ==========\n");
+
+        printf("타자 이니셜\t: %c\n", initial);
+        printf("경기 수\t\t: %d\n", game);
+        printf("타수\t\t: %d\n", at_bat);
+        printf("안타 수\t\t: %d\n", hit);
+        printf("홈런 수\t\t: %d\n", home_run);
+
+        printf("지난 시즌 타율\t: %.3f\n", last_avg);
+        printf("현재 타율\t: %.3f\n", current_avg);
+        printf("타율 차이\t: %.3f\n", avg_diff);
+    }
+}
+
+/* ===== 타자 등급 판정 함수 ===== */
+void print_grade(float avg)
+{
+    if (is_calculated == 0)
+    {
+        printf("\n먼저 현재 타율을 계산하세요.\n");
+    }
+
+    else
+    {
+        printf("\n========== 타자 등급 판정 ==========\n");
+
+        /* 다중 조건문 */
+        if (avg >= 0.330)
+        {
+            printf("타자 등급\t: S급 타자\n");
+        }
+
+        else if (avg >= 0.300)
+        {
+            printf("타자 등급\t: A급 타자\n");
+        }
+
+        else if (avg >= 0.270)
+        {
+            printf("타자 등급\t: B급 타자\n");
+        }
+
+        else if (avg >= 0.250)
+        {
+            printf("타자 등급\t: C급 타자\n");
+        }
+
+        else
+        {
+            printf("타자 등급\t: D급 타자\n");
+        }
+    }
+}
+
+
+
+
 
    
     
