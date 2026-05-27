@@ -86,8 +86,93 @@ int main()
 /* ===== 메뉴 출력 함수 ===== */
 void print_menu()
 {
-  
+    printf("\n================================================\n");
+    printf("\t야구 타자 성적 관리 시스템 V3.0\n");
+    printf("================================================\n");
+
+    printf("1. 타자 정보 입력\n");
+    printf("2. 현재 타율 계산\n");
+    printf("3. 타자 성적 출력\n");
+    printf("4. 타자 등급 및 강타자 여부 분석\n");
+    printf("0. 프로그램 종료\n");
+
+    printf("================================================\n");
+    printf("메뉴를 선택하세요 : ");
 }
+
+/* ===== 타자 정보 입력 함수 ===== */
+void input_player()
+{
+    printf("\n========== 타자 정보 입력 ==========\n");
+
+    printf("타자의 영문 이니셜 한 글자를 입력하세요 : ");
+    scanf(" %c", &initial);
+
+    printf("경기 수를 입력하세요 : ");
+    scanf("%d", &game);
+
+    printf("타수를 입력하세요 : ");
+    scanf("%d", &at_bat);
+
+    printf("안타 수를 입력하세요 : ");
+    scanf("%d", &hit);
+
+    printf("홈런 수를 입력하세요 : ");
+    scanf("%d", &home_run);
+
+    printf("지난 시즌 타율을 입력하세요 (예: 0.275) : ");
+    scanf("%f", &last_avg);
+
+    /* 전역 변수 값 변경 */
+    is_input = 1;
+    is_calculated = 0;
+
+    printf("\n타자 정보 입력 완료!\n");
+}
+
+/* ===== 현재 타율 계산 함수 ===== */
+float calculate_average(float f_hit, float f_at_bat)
+{
+    return f_hit / f_at_bat;
+}
+
+/* ===== 타율 계산 함수 ===== */
+void calculate_stats()
+{
+    float f_hit;
+    float f_at_bat;
+
+    /* 입력 여부 확인 */
+    if (is_input == 0)
+    {
+        printf("\n먼저 타자 정보를 입력하세요.\n");
+    }
+
+    /* 타수 0 검사 */
+    else if (at_bat == 0)
+    {
+        printf("\n타수가 0이면 계산할 수 없습니다.\n");
+    }
+
+    else
+    {
+        /* int → float 변환 */
+        f_hit = hit;
+        f_at_bat = at_bat;
+
+        /* 현재 타율 계산 */
+        current_avg = calculate_average(f_hit, f_at_bat);
+
+        /* 타율 차이 계산 */
+        avg_diff = current_avg - last_avg;
+
+        /* 계산 완료 상태 변경 */
+        is_calculated = 1;
+
+        printf("\n현재 타율 계산 완료!\n");
+    }
+}
+
 
    
     
