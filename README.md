@@ -96,7 +96,8 @@
 ### **📁 증빙 자료:**
   * [2차 과제 AI 협업 증명.pdf](https://github.com/user-attachments/files/27190967/2.AI.pdf)
 
-  * <img width="1910" height="915" alt="2차과제_실행결과" src="https://github.com/user-attachments/assets/3ef0f146-544a-4dc6-995c-82952623a947" />
+  * <img width="1910" height="915" alt="2차과제_실행결과" src="https://github.com/user-attachments/assets/27004c05-5767-497a-9afc-ee534ecbf600" />
+
   
 <br>
 
