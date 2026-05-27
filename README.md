@@ -125,8 +125,10 @@
      * **해결:** 전역변수를 사용하여 여러 함수에서 공통 데이터를 사용할 수 있도록 구성하고, calculate_average() 함수에서는 return문을 통해 계산 결과를 반환하도록 설계함.
      
 ### **📁 증빙 자료:**
-  * [3차_AI협업캡처.pdf 첨부 완료] 
-  * [3차과제_실행결과.jpg] 
+  * [3차과제 AI 협업 증명.pdf](https://github.com/user-attachments/files/28307246/3.AI.pdf)
+
+  * [3차과제_실행결과.pdf](https://github.com/user-attachments/files/28307259/3._.pdf)
+
     
 <br>
 
