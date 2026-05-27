@@ -242,7 +242,49 @@ void print_grade(float avg)
     }
 }
 
+/* ===== 강타자 분석 함수 ===== */
+void analyze_power_hitter(float avg, int hr)
+{
+    if (is_calculated == 0)
+    {
+        printf("\n먼저 현재 타율을 계산하세요.\n");
+    }
 
+    else
+    {
+        printf("\n========== 강타자 여부 판정 ==========\n");
+
+        /* 중첩 조건문 */
+        if (avg >= 0.300)
+        {
+            if (hr >= 30)
+            {
+                printf("중첩 조건 판정\t: A급 이상이면서 홈런 30개 이상입니다.\n");
+            }
+
+            else
+            {
+                printf("중첩 조건 판정\t: A급 이상이지만 홈런 30개 미만입니다.\n");
+            }
+        }
+
+        else
+        {
+            printf("중첩 조건 판정\t: 현재 타율이 0.300 미만입니다.\n");
+        }
+
+        /* 논리 연산자 && */
+        if (avg >= 0.300 && hr >= 30)
+        {
+            printf("강타자 여부\t: 강타자입니다.\n");
+        }
+
+        else
+        {
+            printf("강타자 여부\t: 일반 타자입니다.\n");
+        }
+    }
+}
 
 
 
