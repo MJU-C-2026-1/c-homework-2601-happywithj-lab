@@ -94,9 +94,9 @@
      * **해결:** 바깥쪽 조건문에서는 현재 타율이 0.300 이상인지 먼저 확인하고, 그 안쪽 조건문에서 홈런 수가 30개 이상인지 추가로 검사하도록 구조를 분리함.
 
 ### **📁 증빙 자료:**
-  * [2차_AI협업캡처.pdf 첨부 완료] [2차 과제 AI 협업 증명.pdf](https://github.com/user-attachments/files/27190967/2.AI.pdf)
+  * [2차 과제 AI 협업 증명.pdf](https://github.com/user-attachments/files/27190967/2.AI.pdf)
 
-  * [2차과제_실행결과.jpg] <img width="1910" height="915" alt="2차과제_실행결과" src="https://github.com/user-attachments/assets/3ef0f146-544a-4dc6-995c-82952623a947" />
+  * <img width="1910" height="915" alt="2차과제_실행결과" src="https://github.com/user-attachments/assets/3ef0f146-544a-4dc6-995c-82952623a947" />
   
 <br>
 
