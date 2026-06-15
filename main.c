@@ -97,192 +97,52 @@ void print_menu()
 }
 
 /* ===== 타자 정보 입력 함수 ===== */
-void input_player()
+void input_players()
 {
+    int i;
+
     printf("\n========== 타자 정보 입력 ==========\n");
 
-    printf("타자의 영문 이니셜 한 글자를 입력하세요 : ");
-    scanf(" %c", &initial);
+    printf("입력할 타자 수를 입력하세요 (최대 5명) : ");
+    scanf("%d", &player_count);
 
-    printf("경기 수를 입력하세요 : ");
-    scanf("%d", &game);
+    if (player_count > MAX_PLAYER)
+    {
+        player_count = MAX_PLAYER;
+        printf("\n최대 5명까지만 입력할 수 있습니다.\n");
+    }
 
-    printf("타수를 입력하세요 : ");
-    scanf("%d", &at_bat);
+    for (i = 0; i < player_count; i++)
+    {
+        printf("\n[%d번 타자 정보 입력]\n", i + 1);
 
-    printf("안타 수를 입력하세요 : ");
-    scanf("%d", &hit);
+        printf("타자의 영문 이니셜 한 글자를 입력하세요 : ");
+        scanf(" %c", &initial[i]);
 
-    printf("홈런 수를 입력하세요 : ");
-    scanf("%d", &home_run);
+        printf("경기 수를 입력하세요 : ");
+        scanf("%d", &game[i]);
 
-    printf("지난 시즌 타율을 입력하세요 (예: 0.275) : ");
-    scanf("%f", &last_avg);
+        printf("타수를 입력하세요 : ");
+        scanf("%d", &at_bat[i]);
 
-    /* 전역 변수 값 변경 */
+        printf("안타 수를 입력하세요 : ");
+        scanf("%d", &hit[i]);
+
+        printf("홈런 수를 입력하세요 : ");
+        scanf("%d", &home_run[i]);
+
+        printf("지난 시즌 타율을 입력하세요 (예: 0.275) : ");
+        scanf("%f", &last_avg[i]);
+    }
+
     is_input = 1;
     is_calculated = 0;
 
     printf("\n타자 정보 입력 완료!\n");
 }
-
-/* ===== 현재 타율 계산 함수 ===== */
-float calculate_average(float f_hit, float f_at_bat)
-{
-    return f_hit / f_at_bat;
-}
-
-/* ===== 타율 계산 함수 ===== */
-void calculate_stats()
-{
-    float f_hit;
-    float f_at_bat;
-
-    /* 입력 여부 확인 */
-    if (is_input == 0)
-    {
-        printf("\n먼저 타자 정보를 입력하세요.\n");
-    }
-
-    /* 타수 0 검사 */
-    else if (at_bat == 0)
-    {
-        printf("\n타수가 0이면 계산할 수 없습니다.\n");
-    }
-
-    else
-    {
-        /* int → float 변환 */
-        f_hit = hit;
-        f_at_bat = at_bat;
-
-        /* 현재 타율 계산 */
-        current_avg = calculate_average(f_hit, f_at_bat);
-
-        /* 타율 차이 계산 */
-        avg_diff = current_avg - last_avg;
-
-        /* 계산 완료 상태 변경 */
-        is_calculated = 1;
-
-        printf("\n현재 타율 계산 완료!\n");
-    }
-}
-
-/* ===== 타자 성적 출력 함수 ===== */
-void print_player_info()
-{
-    if (is_input == 0)
-    {
-        printf("\n먼저 타자 정보를 입력하세요.\n");
-    }
-
-    else if (is_calculated == 0)
-    {
-        printf("\n먼저 현재 타율을 계산하세요.\n");
-    }
-
-    else
-    {
-        printf("\n========== 타자 성적 결과 ==========\n");
-
-        printf("타자 이니셜\t: %c\n", initial);
-        printf("경기 수\t\t: %d\n", game);
-        printf("타수\t\t: %d\n", at_bat);
-        printf("안타 수\t\t: %d\n", hit);
-        printf("홈런 수\t\t: %d\n", home_run);
-
-        printf("지난 시즌 타율\t: %.3f\n", last_avg);
-        printf("현재 타율\t: %.3f\n", current_avg);
-        printf("타율 차이\t: %.3f\n", avg_diff);
-    }
-}
-
-/* ===== 타자 등급 판정 함수 ===== */
-void print_grade(float avg)
-{
-    if (is_calculated == 0)
-    {
-        printf("\n먼저 현재 타율을 계산하세요.\n");
-    }
-
-    else
-    {
-        printf("\n========== 타자 등급 판정 ==========\n");
-
-        /* 다중 조건문 */
-        if (avg >= 0.330)
-        {
-            printf("타자 등급\t: S급 타자\n");
-        }
-
-        else if (avg >= 0.300)
-        {
-            printf("타자 등급\t: A급 타자\n");
-        }
-
-        else if (avg >= 0.270)
-        {
-            printf("타자 등급\t: B급 타자\n");
-        }
-
-        else if (avg >= 0.250)
-        {
-            printf("타자 등급\t: C급 타자\n");
-        }
-
-        else
-        {
-            printf("타자 등급\t: D급 타자\n");
-        }
-    }
-}
-
-/* ===== 강타자 분석 함수 ===== */
-void analyze_power_hitter(float avg, int hr)
-{
-    if (is_calculated == 0)
-    {
-        printf("\n먼저 현재 타율을 계산하세요.\n");
-    }
-
-    else
-    {
-        printf("\n========== 강타자 여부 판정 ==========\n");
-
-        /* 중첩 조건문 */
-        if (avg >= 0.300)
-        {
-            if (hr >= 30)
-            {
-                printf("중첩 조건 판정\t: A급 이상이면서 홈런 30개 이상입니다.\n");
-            }
-
-            else
-            {
-                printf("중첩 조건 판정\t: A급 이상이지만 홈런 30개 미만입니다.\n");
-            }
-        }
-
-        else
-        {
-            printf("중첩 조건 판정\t: 현재 타율이 0.300 미만입니다.\n");
-        }
-
-        /* 논리 연산자 && */
-        if (avg >= 0.300 && hr >= 30)
-        {
-            printf("강타자 여부\t: 강타자입니다.\n");
-        }
-
-        else
-        {
-            printf("강타자 여부\t: 일반 타자입니다.\n");
-        }
-    }
-}
-
-
-
-   
+   /* ===== 현재 타율 계산 함수 ===== */
+   float calculate_average(float f_hit, float f_at_bat)
+   {
+       return f_hit / f_at_bat;
+   }
     
