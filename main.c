@@ -1,31 +1,35 @@
 /* 
   파일이름: main.c
   작 성 자: 박승우
-  하 는 일: 야구 타자 성적 관리 시스템 v3.0
+  하 는 일: 야구 타자 성적 관리 시스템 v4.0
 */
 
 #include <stdio.h>
 
+#define MAX_PLAYER 5
+
 /* ===== 전역 변수 선언 ===== */
-char initial;               // 타자 이니셜
-int game;                   // 경기 수
-int at_bat;                 // 타수
-int hit;                    // 안타 수
-int home_run;               // 홈런 수
+char initial[MAX_PLAYER];               // 타자 이니셜 배열
+int game[MAX_PLAYER];                   // 경기 수 배열
+int at_bat[MAX_PLAYER];                 // 타수 배열
+int hit[MAX_PLAYER];                    // 안타 수 배열
+int home_run[MAX_PLAYER];               // 홈런 수 배열
 
-int is_input = 0;           // 입력 여부 확인
-int is_calculated = 0;      // 계산 여부 확인
+float last_avg[MAX_PLAYER];             // 지난 시즌 타율 배열
+float current_avg[MAX_PLAYER];          // 현재 타율 배열
+float avg_dif[MAX_PLAYER];              // 타율 차이 배열
 
-float last_avg;             // 지난 시즌 타율
-float current_avg;          // 현재 타율
-float avg_diff;             // 타율 차이
+int player_count = 0;                   // 입력된 타자 수
+int is_input = 0;                       // 입력 여부 확인
+int is_calculated = 0;                  // 계산 여부 확인
 
 /* ===== 함수 원형 선언 ===== */
 void print_menu();
-void input_player();
+void input_players();
 float calculate_average(float f_hit, float f_at_bat);
-void calculate_stats();
-void print_player_info();
+void calculate_all_stats(int hit_arr[], int at_bat_arr[], float last_avg_arr[], float current_avg_arr[], float avg_diff_arr[], int count);
+void print_all_players(char initial_arr[], int game_arr[], int at_bat_arr[], int hit_arr[], int home_run_arr[], float last_avg_arr[], float current_avg_arr[], float avg_diff_arr[], int count);
+void analyze_all_players(char initial_arr[], float current_avg_arr[], int home_run_arr[], int count);
 void print_grade(float avg);
 void analyze_power_hitter(float avg, int hr);
 
