@@ -38,36 +38,30 @@ int main()
 {
     int menu;
 
-    /* ===== 무한 반복 메뉴 ===== */
     while (1)
     {
         print_menu();
 
         scanf("%d", &menu); 
         
-        /* 메뉴 1 : 타자 정보 입력 */
         if (menu == 1)
         {
-            input_player();
+            input_players();
         }
 
-        /* 메뉴 2 : 현재 타율 계산 */
         else if (menu == 2)
         {
-            calculate_stats();
+            calculate_all_stats(hit, at_bat, last_avg, current_avg, avg_diff, player_count);
         }
 
-        /* 메뉴 3 : 타자 성적 출력 */
         else if (menu == 3)
         {
-            print_player_info();
+            print_all_players(initial, game, at_bat, hit, home_run, last_avg, current_avg, avg_diff, player_count);
         }
 
-        /* 메뉴 4 : 등급 및 강타자 분석 */
         else if (menu == 4)
         {
-            print_grade(current_avg);
-            analyze_power_hitter(current_avg, home_run);
+            analyze_all_players(initial, current_avg, home_run, player_count);
         }
 
         /* 메뉴 0 : 프로그램 종료 */
