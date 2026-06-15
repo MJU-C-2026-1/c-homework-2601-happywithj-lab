@@ -64,14 +64,12 @@ int main()
             analyze_all_players(initial, current_avg, home_run, player_count);
         }
 
-        /* 메뉴 0 : 프로그램 종료 */
         else if (menu == 0)
         {
             printf("\n프로그램을 종료합니다.\n");
             break;
         }
 
-        /* 잘못된 메뉴 입력 */
         else
         {
             printf("\n잘못된 메뉴 번호입니다.\n");
@@ -85,13 +83,13 @@ int main()
 void print_menu()
 {
     printf("\n================================================\n");
-    printf("\t야구 타자 성적 관리 시스템 V3.0\n");
+    printf("\t야구 타자 성적 관리 시스템 V4.0\n");
     printf("================================================\n");
 
     printf("1. 타자 정보 입력\n");
-    printf("2. 현재 타율 계산\n");
-    printf("3. 타자 성적 출력\n");
-    printf("4. 타자 등급 및 강타자 여부 분석\n");
+    printf("2. 전체 타율 계산\n");
+    printf("3. 전체 타자 성적 출력\n");
+    printf("4. 전체 타자 등급 및 강타자 여부 분석\n");
     printf("0. 프로그램 종료\n");
 
     printf("================================================\n");
